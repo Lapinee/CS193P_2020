@@ -35,6 +35,8 @@ struct CardView: View {
         }
     }
     
+    //some View를 return하는 경우, @ViewBuilder 키워드를 넣을 수 있음
+    //Content는 ViewList로 해석하고 하나로 결합
     @ViewBuilder
     func body(for size: CGSize) -> some View {
         if card.isFaceUp || !card.isMatched {
@@ -59,6 +61,7 @@ struct CardView: View {
     }
 }
 
+//아래와 같이 구현할 경우,  어떤 View에서도 사용이 가능
 extension View {
     func cardify(isFaceUp: Bool) -> some View {
         self.modifier(Cardify(isFaceUp: isFaceUp))

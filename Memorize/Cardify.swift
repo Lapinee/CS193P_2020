@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+//ViewModifier 프로토콜은 전달된 항목을 기반으로 새로운 View를 생성
+//aspectRatio, Padding
+//protocol ViewModifier {
+//  func body(content: Content) -> some View {
+//          return some View that represents a modification of content
+//      }
+//  }
 struct Cardify: ViewModifier {
     var isFaceUp: Bool
     
