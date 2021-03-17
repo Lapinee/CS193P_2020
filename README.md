@@ -1,4 +1,3 @@
-# CS193P_2020
 - MVVM (Model View ViewModel) architecture
     - Model (notices changes)
         - UI Independent
@@ -60,6 +59,26 @@
     - Safe Area
         - ZStack { ... }.edgesIgnoringSafeArea([.top])
     - Container (modifier : .frame), .position(CGPoint), .offset(CGSize)
+    - @ViewBuilder
+        - @ViewBuilder to mark a parameter that returns a View
+        - struct GeometryReader<Content> where Content:View {
+         init(@ViewBuilder content: @escaping (GeometryProxy) → Content) {...}
+        }
+    - Shape
+        - Shape is a protocol that inherits from View
+        - Examples of Shapes : RoundedRectangle, Circle, Capsule, etc.
+        - .fill(), .stroke()
+        - func fill<S>(_ whatToFillWith: S) → View where S: ShapeStyle
+        - S is don't care type
+        - S can be anything that implements the ShapeStyle protocol
+        - Color, ImagePaint, AngularGradient, LinearGradient
+    - Animation
+        - ViewModifier : modify views (like aspectRatio and padding)
+        - protocol ViewModifier {
+              associatedtype Content
+              func body (content: Content) → some View {
+                       return some View that represents a modification of content }
+        }
 - Grid
 - emun
     - Another variety of data structure in addition to struct and class
