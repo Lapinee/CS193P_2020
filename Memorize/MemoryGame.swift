@@ -11,7 +11,8 @@ import Foundation
 //Equal에 대한 Operand가 Language에 기본으로 들어 있지 않으므로, Equatable 프로토콜 타입으로 설정
 //Equatable에 대한 필수 함수를 구현해줘야 함
 struct MemoryGame<CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+    //read-only
+    private(set) var cards: Array<Card>
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         //collectionType - indices: Array 범위 내에서 안전하게 조회
