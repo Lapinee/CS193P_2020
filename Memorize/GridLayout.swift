@@ -17,6 +17,7 @@ struct GridLayout {
         self.size = size
         // if our size is zero width or height or the itemCount is not > 0
         // then we have no work to do (because our rowCount & columnCount will be zero)
+        // guard let
         guard size.width != 0, size.height != 0, itemCount > 0 else { return }
         // find the bestLayout
         // i.e., one which results in cells whose aspectRatio

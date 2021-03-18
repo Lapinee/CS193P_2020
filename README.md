@@ -72,7 +72,7 @@
         - S is don't care type
         - S can be anything that implements the ShapeStyle protocol
         - Color, ImagePaint, AngularGradient, LinearGradient
-    - Animation
+    - ViewModifier
         - ViewModifier : modify views (like aspectRatio and padding)
         - protocol ViewModifier {
               associatedtype Content
@@ -90,3 +90,22 @@
     - can access the associated value either by force(with !)...
     - Or "safely" using if let and then using the safely-gotten associated value in { } (else allowed too)
     - ?? which does "Optional defaulting". It's called the "nil-coalescing operator"
+
+- Property Observer
+- @State
+    - It seems like @ObservedObject and @Published
+- Animation
+    - using the view modifier .animation(Animation)
+        - curve
+            - .linear
+            - .easeInOut
+            - .spring
+        - duration (delay, repeat)
+    - withAnimation(Animation) { }
+    - .onAppear { }
+    - .onDisappear { }
+- Transition
+    - .transition() is just specifying what he ViewModifiers are.
+    - It doesn't cause any animation to occur.
+    - Transitions do not work with implicit animations, only explicit animations
+    - All the transition API is "type erased"

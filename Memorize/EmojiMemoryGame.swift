@@ -17,7 +17,7 @@ class EmojiMemoryGame:ObservableObject {
     
     //viewModel 생성 후 초기화 되어야만 이용이 가능하므로, 정적함수로 선언
     private static func createMemoryGame() -> MemoryGame<String> { //초기화
-        let emojis: Array<String> = ["👻", "🎃", "🕷", "🍒"]
+        let emojis: Array<String> = ["👻", "🎃", "🕷", "🍒","🍎", "⚾️"]
         return MemoryGame<String>(numberOfPairsOfCards:emojis.count) { pairIndex in //Closure
             return emojis[pairIndex]
         }
@@ -32,5 +32,9 @@ class EmojiMemoryGame:ObservableObject {
     //View로부터 동작 실행에 대한 Intent
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
+    }
+    
+    func resetGame() {
+        model = EmojiMemoryGame.createMemoryGame()
     }
 }
